@@ -100,6 +100,28 @@ def cmd_filter(args: argparse.Namespace) -> None:
     print(json.dumps(stats, indent=2))
 
 
+def cmd_eval(args: argparse.Namespace) -> None:
+    from cabin_copilot.eval.harness import evaluate_model
+
+    backend = make_backend(args.provider, args.model, args.base_url)
+    scenarios = _load_scenarios(Path(args.scenarios))
+    summary = evaluate_model(
+        scenarios, backend, Path(args.out), system=args.system, label=args.label
+    )
+    print(json.dumps(summary, indent=2))
+
+
+def cmd_compare(args: argparse.Namespace) -> None:
+    from cabin_copilot.eval.pairwise import compare_runs
+
+    backend = make_backend(args.provider, args.model, args.base_url)
+    scenarios = _load_scenarios(Path(args.scenarios))
+    summary = compare_runs(
+        Path(args.run_a), Path(args.run_b), scenarios, backend, Path(args.out)
+    )
+    print(json.dumps(summary, indent=2))
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="cabin-copilot")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -130,6 +152,22 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--judge", default=None, help="judge scores JSONL from the judge command")
     p.add_argument("--judge-threshold", type=int, default=4)
     p.set_defaults(func=cmd_filter)
+
+    p = sub.add_parser("eval", help="score a model on held-out scenarios")
+    p.add_argument("--scenarios", required=True)
+    p.add_argument("--out", required=True)
+    p.add_argument("--system", choices=["student", "teacher"], default="student")
+    p.add_argument("--label", default="")
+    _add_backend_args(p)
+    p.set_defaults(func=cmd_eval)
+
+    p = sub.add_parser("compare", help="pairwise LLM-judge between two eval runs")
+    p.add_argument("--run-a", required=True)
+    p.add_argument("--run-b", required=True)
+    p.add_argument("--scenarios", required=True)
+    p.add_argument("--out", required=True)
+    _add_backend_args(p)
+    p.set_defaults(func=cmd_compare)
 
     args = parser.parse_args(argv)
     args.func(args)

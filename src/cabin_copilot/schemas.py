@@ -81,9 +81,9 @@ class History(BaseModel):
     alerts_last_30min: int = Field(ge=0)
 
 
-class Scenario(BaseModel):
-    scenario_id: str
-    taxonomy: str
+class Signals(BaseModel):
+    """The raw signal snapshot — the full model input, and the serving request body."""
+
     speed_kmh: float = Field(ge=0, le=200)
     trip_minutes: int = Field(ge=0)
     time_of_day: TimeOfDay
@@ -92,17 +92,20 @@ class Scenario(BaseModel):
     phone: Phone
     cabin: CabinState
     history: History
+
+    def signals_json(self) -> str:
+        """Compact JSON of the signal fields only — exactly what the model sees."""
+        payload = self.model_dump(include=set(Signals.model_fields))
+        return json.dumps(payload, separators=(",", ":"))
+
+
+class Scenario(Signals):
+    scenario_id: str
+    taxonomy: str
     # Ground-truth severity band from the taxonomy cell. Never shown to the model;
     # used by the quality gate (hard reject) and the eval harness (severity accuracy).
     expected_severity_min: Severity
     expected_severity_max: Severity
-
-    def signals_json(self) -> str:
-        """Compact JSON of the signal fields only — exactly what the model sees."""
-        payload = self.model_dump(
-            exclude={"scenario_id", "taxonomy", "expected_severity_min", "expected_severity_max"}
-        )
-        return json.dumps(payload, separators=(",", ":"))
 
 
 class CoachResponse(BaseModel):
