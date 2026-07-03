@@ -42,7 +42,11 @@ def cmd_generate(args: argparse.Namespace) -> None:
     backend = make_backend(args.provider, args.model, args.base_url)
     scenarios = _load_scenarios(Path(args.scenarios))
     stats = generate_pairs(
-        scenarios, backend, Path(args.out), temperature=args.temperature
+        scenarios,
+        backend,
+        Path(args.out),
+        temperature=args.temperature,
+        hint_band=args.hint_band,
     )
     print(json.dumps({**stats, "usage": backend.usage.__dict__}, indent=2))
 
@@ -137,6 +141,11 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--scenarios", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--temperature", type=float, default=0.7)
+    p.add_argument(
+        "--hint-band",
+        action="store_true",
+        help="show the teacher the ground-truth severity band (label-conditioned generation)",
+    )
     _add_backend_args(p)
     p.set_defaults(func=cmd_generate)
 

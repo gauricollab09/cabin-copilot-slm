@@ -63,6 +63,17 @@ def test_generate_pairs_resumes(tmp_path):
     assert len(done_ids(out)) == 10
 
 
+def test_teacher_user_turn_hint_band():
+    from cabin_copilot.teacher.generate import teacher_user_turn
+    from tests.conftest import make_scenario
+
+    scenario = make_scenario()
+    assert teacher_user_turn(scenario, hint_band=False) == scenario.signals_json()
+    hinted = teacher_user_turn(scenario, hint_band=True)
+    assert hinted.startswith(scenario.signals_json())
+    assert "Calibration note" in hinted and '"none"' in hinted
+
+
 def test_generate_pairs_records_failures(tmp_path):
     scenarios = list(generate_scenarios(5, seed=1))
     bad_id_fragment = json.loads(scenarios[0].signals_json())  # noqa: F841 — sanity parse

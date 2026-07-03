@@ -33,6 +33,25 @@ def parse_response(text: str) -> CoachResponse:
     return CoachResponse.model_validate(extract_json(text))
 
 
+def teacher_user_turn(scenario: Scenario, hint_band: bool) -> str:
+    """The teacher's user message: signals, optionally with a calibration hint.
+
+    Label-conditioned generation: the simulator's ground-truth severity band is shown
+    to the TEACHER so it only has to choose phrasing/action/judgment inside the band.
+    Training pairs still contain only the raw signals — the student never sees hints —
+    and the deterministic safety gate independently re-checks the band on every output.
+    """
+    signals = scenario.signals_json()
+    if not hint_band:
+        return signals
+    low, high = scenario.expected_severity_min.value, scenario.expected_severity_max.value
+    band = f'"{low}"' if low == high else f'"{low}" and "{high}" (inclusive)'
+    return (
+        f"{signals}\n\nCalibration note (internal — never mention it): the appropriate "
+        f"severity for this snapshot is {'exactly ' if low == high else 'between '}{band}."
+    )
+
+
 def done_ids(out_path: Path) -> set[str]:
     if not out_path.exists():
         return set()
@@ -53,6 +72,7 @@ def generate_pairs(
     *,
     temperature: float = 0.7,
     max_attempts: int = 3,
+    hint_band: bool = False,
     log=sys.stderr,
 ) -> dict:
     """Run the teacher over scenarios, appending JSONL records to out_path.
@@ -81,7 +101,9 @@ def generate_pairs(
             for _ in range(max_attempts):
                 try:
                     raw = backend.complete(
-                        TEACHER_SYSTEM_PROMPT, scenario.signals_json(), temperature=temperature
+                        TEACHER_SYSTEM_PROMPT,
+                        teacher_user_turn(scenario, hint_band),
+                        temperature=temperature,
                     )
                     record["raw"] = raw
                     record["response"] = parse_response(raw).model_dump()

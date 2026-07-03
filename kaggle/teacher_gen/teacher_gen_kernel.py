@@ -71,7 +71,7 @@ def main() -> None:
     )
     sh(
         f"cabin-copilot generate --scenarios {WORK}/scenarios_train.jsonl "
-        f"--out {WORK}/raw_train.jsonl {base}",
+        f"--out {WORK}/raw_train.jsonl --hint-band {base}",
         env=env,
     )
     sh(
