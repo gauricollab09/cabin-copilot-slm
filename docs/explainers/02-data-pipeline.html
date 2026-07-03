@@ -81,6 +81,33 @@
         teachers; large teachers rarely need it.</td></tr>
   </table>
 
+  <h2>Mid-build correction: label-conditioned generation</h2>
+  <div class="decision">
+    <div class="label">Finding → Decision</div>
+    <h3>Small teachers can't calibrate severity from signals alone — so condition them on the label</h3>
+    <p>The first full fallback run (llama3.2-3B teacher, local CPU) was stopped after 448
+    scenarios: the quality gate accepted only <strong>10%</strong>, with 345/448 rejected
+    for severity-out-of-band — and every accepted pair was <code>none</code>/<code>info</code>
+    severity. A 3B teacher simply cannot map raw signals to the right urgency level.</p>
+    <p>Fix: <strong>label-conditioned generation</strong>, a standard synthetic-data
+    technique. The simulator already knows each scenario's ground-truth severity band, so
+    <code>--hint-band</code> appends it to the <em>teacher's</em> input as a calibration
+    note. The teacher now only chooses phrasing, action, and judgment <em>within</em> the
+    band. The student never sees hints, and the deterministic gate still re-checks every
+    output independently.</p>
+    <table>
+      <tr><th></th><th>Unconditioned</th><th>Hint-band</th></tr>
+      <tr><td>Gate acceptance (pre-balance)</td><td class="bad">~10%</td><td class="good">~85%</td></tr>
+      <tr><td>Severity out-of-band</td><td class="bad">77% of samples</td><td class="good">~5%</td></tr>
+      <tr><td>Severity classes reached</td><td class="bad">none, info only</td><td class="good">all five</td></tr>
+    </table>
+    <p>An A/B of two local 3B teachers with hints (llama3.2 vs qwen2.5:3b) also exposed
+    their remaining weakness: <em>parroting</em> — few-shot examples copied verbatim and
+    stock phrases repeated across scenarios. That is a teacher-capacity problem the
+    dedup stage only partially masks, and it is the concrete, measured argument for the
+    14B teacher on a free Kaggle GPU being the primary data path.</p>
+  </div>
+
   <div class="decision">
     <div class="label">Decision</div>
     <h3>Dedup and class balance run before anything reaches training</h3>
