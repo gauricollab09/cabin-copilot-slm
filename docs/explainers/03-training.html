@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · QLoRA Training — CabinCopilot-SLM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">← All explainers</a></p>
+  <h1>03 · QLoRA Training</h1>
+  <p class="meta">Free-GPU orchestration and hyperparameter reasoning — July 2026</p>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>QLoRA on a free Kaggle T4, driven headlessly from the laptop</h3>
+    <p>The build machine (2019 Intel MacBook) has no usable training GPU. Kaggle gives
+    30 GPU-hours/week free and — unlike Colab — has a real CLI (<code>kaggle kernels
+    push/status/output</code>), so the whole train job is scripted and reproducible
+    instead of clicked. The kernel clones this public repo, so the only artifact shipped
+    <em>to</em> Kaggle is a dataset; everything else is code under version control.</p>
+    <p class="rejected"><strong>Rejected: Colab</strong> — interactive-only, no honest
+    headless story. <strong>Rejected: paid GPU clouds</strong> — the project's constraint
+    is $0 infrastructure, and a T4 is genuinely enough for a 3B QLoRA.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Hyperparameters: the boring, defensible recipe</h3>
+    <table>
+      <tr><th>Choice</th><th>Value</th><th>Why</th></tr>
+      <tr><td>Quantization</td><td>4-bit NF4, double-quant, fp16 compute</td>
+          <td>Standard QLoRA; <strong>fp16 not bf16 because the T4 (sm_75) has no bfloat16</strong>.</td></tr>
+      <tr><td>LoRA rank / α</td><td>16 / 32</td>
+          <td>The task is narrow and highly structured; rank 16 over all attention+MLP
+          projections is ample capacity. Bigger ranks mostly buy overfitting here.</td></tr>
+      <tr><td>Epochs</td><td>2</td>
+          <td>Small dataset of short, formulaic targets — loss plateaus fast; more epochs
+          means memorising teacher phrasing verbatim.</td></tr>
+      <tr><td>Effective batch</td><td>16 (2 × grad-accum 8)</td>
+          <td>What fits a 16 GB T4 at seq-len 1024 with gradient checkpointing.</td></tr>
+      <tr><td>LR</td><td>2e-4, cosine, 3% warmup</td><td>Canonical QLoRA LR for adapters.</td></tr>
+      <tr><td>Optimizer</td><td>paged_adamw_8bit</td><td>Halves optimizer VRAM; standard with bitsandbytes.</td></tr>
+    </table>
+    <p>All of it lives in <code>training/configs/qlora_qwen25_3b.yaml</code>; the run
+    snapshots the config next to its outputs so no result is ever orphaned from its
+    settings.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Training on chat-format JSONL with the short student prompt</h3>
+    <p>Every example is <code>system(60-token student prompt) → user(signals JSON) →
+    assistant(contract JSON)</code>. The long teacher prompt appears nowhere in training
+    — its behaviour must be carried entirely by the examples, which is the point.</p>
+  </div>
+
+  <h2>Run log</h2>
+  <p><em>This section is filled in from the actual training run (loss curves from
+  <code>loss_log.csv</code>, final eval loss, wall-clock, GPU).</em></p>
+  <!-- RUN_LOG -->
+
+  <footer>Next: <a href="04-evaluation.html">04 · Evaluation</a></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "speed_kmh": 88.0,
+  "trip_minutes": 190,
+  "time_of_day": "late_night",
+  "drowsiness": { "eye_closure_pct": 71.5, "yawn_count_5min": 4, "head_nod_events": 3 },
+  "gaze": { "zone": "eyes_closed", "off_road_ms": 2600 },
+  "phone": { "in_hand": false, "screen_on": false },
+  "cabin": { "n_passengers": 0, "child_present": false, "conversation": false },
+  "history": { "alerts_last_30min": 1 }
+}
