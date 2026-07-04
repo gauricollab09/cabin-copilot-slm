@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 · Build sessions — CabinCopilot-SLM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">← All explainers</a></p>
+  <h1>06 · The build sessions</h1>
+  <p class="meta">A detailed log of what was thought, tried, and done — session by
+  session. July 3–4, 2026.</p>
+
+  <p>Explainers 01–05 document the <em>design</em> decisions. This page documents the
+  <em>build</em> itself: the actual sequence of work, the failures along the way, and the
+  reasoning at each fork. It exists because "how it was actually built" is a different
+  story from "how it was designed" — and usually a more honest one.</p>
+
+  <h2>Session 1 — July 3, 13:48 → 01:23 (the build)</h2>
+
+  <p>Everything from empty repository to a full pipeline in one long session:</p>
+
+  <table>
+    <tr><th>Block</th><th>What landed</th></tr>
+    <tr><td>Scaffold</td><td>Package layout, <code>pyproject.toml</code>, pytest + ruff, CI stub, isolated <code>.venv</code></td></tr>
+    <tr><td>Simulator</td><td>Seeded scenario generator over a 15-cell safety taxonomy; 2,400 train scenarios (seed 7), 150 eval scenarios (seed 101)</td></tr>
+    <tr><td>Teacher</td><td>Pluggable backends (Anthropic / OpenAI / Groq / OpenRouter / Ollama), resumable generation that appends every record immediately and skips done IDs on restart</td></tr>
+    <tr><td>Quality gate</td><td>Eight deterministic safety rules, LLM-judge rubric, dedup + class balancing</td></tr>
+    <tr><td>Training</td><td>Config-driven QLoRA script (TRL + PEFT), Kaggle kernels for 14B-teacher generation and train + GGUF export</td></tr>
+    <tr><td>Eval</td><td>Metrics harness + position-bias-controlled pairwise judge</td></tr>
+    <tr><td>Serving</td><td>FastAPI <code>/coach</code> with strict contract validation, Ollama Modelfile, Dockerfile</td></tr>
+    <tr><td>Docs</td><td>README, LICENSE, explainers 01–05, CV bullets draft</td></tr>
+  </table>
+
+  <div class="decision">
+    <div class="label">Finding</div>
+    <h3>The 3B teacher mis-calibrated severity on 77% of samples</h3>
+    <p>The first local generation run (llama3.2, no hints) passed the quality gate only
+    ~10% of the time — almost entirely severity mis-calibration, not schema failures.
+    The fix was <strong>label-conditioned generation</strong> (<code>--hint-band</code>):
+    the teacher sees the simulator's ground-truth severity band; the student never does
+    (training pairs contain raw signals only). Acceptance jumped to ~85%+. The A/B also
+    surfaced the counter-finding: even hinted, small teachers parrot few-shot phrasing —
+    the measured argument for the 14B-teacher Kaggle path. Details in
+    <a href="02-data-pipeline.html">explainer 02</a>.</p>
+  </div>
+
+  <p>The session ended with the hinted llama3.2 fallback run in flight (98%+ parse
+  success) and one external dependency outstanding: a Kaggle API token, which only a
+  human can create. At <strong>01:21, at 508/2,400 samples, the laptop went to sleep and
+  killed the run.</strong> Nothing was lost — the generator's append-and-skip design is
+  exactly for this — but ~6 hours of generation, one baseline eval, and explainer 04 were
+  left stranded and uncommitted.</p>
+
+  <h2>Session 2 — July 4, morning (resume, de-risk, dress-rehearse)</h2>
+
+  <h3>1 · Reconstructing state</h3>
+  <p>The session began by locating the project (searching the machine for QLoRA/RAG/LoRA
+  work from the previous day), then reconstructing exact state from three sources: the
+  git log (5 commits, clean tree except two untracked paths), the generation log
+  (dead at 508/2,400), and the previous session's transcript — which yielded the exact
+  relaunch command, including <code>--hint-band --temperature 0.8</code>. Resuming with
+  a <em>different</em> command would have silently produced a mixed-distribution dataset;
+  recovering the verbatim invocation was the whole point of reading the transcript.</p>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Resume, don't restart — and pin the laptop awake</h3>
+    <p>The 508 completed samples were generated under identical settings, so resume was
+    a pure win: the CLI skips done scenario IDs and appends. Post-resume failure count:
+    zero. To prevent a repeat of the 01:21 death, <code>caffeinate</code> now holds the
+    machine awake for the rest of the run.</p>
+    <p class="rejected"><strong>Rejected: sharding generation across parallel workers.</strong>
+    A 3B model through Ollama on an 8-core Intel i9 is compute-bound; parallel requests
+    share the same cores and buy little except memory pressure on a 16 GB machine
+    already running an eval.</p>
+  </div>
+
+  <h3>2 · Resource inventory — what can actually run where</h3>
+  <p>Before promising anything, the machine was audited: 2019 MacBook Pro, 8-core Intel
+  i9-9880H, 16 GB RAM, no CUDA, no Apple-Silicon MPS — and a sweep of shell configs,
+  environment, and credential caches found <strong>no API keys of any kind</strong>
+  (no Anthropic, OpenAI, Groq, HuggingFace, or Kaggle). Consequences: the teacher for
+  the fallback dataset must be local Ollama; the strong 14B-teacher path and all GPU
+  training have exactly one free route — Kaggle — and its token is the single human
+  dependency. Training on this laptop was ruled out twice over: infeasible (days on CPU,
+  bitsandbytes needs CUDA) and explicitly excluded by the project owner.</p>
+
+  <h3>3 · Landing the stranded work</h3>
+  <p>The interrupted session had produced baseline (b) — base 3B + 60-token student
+  prompt: <strong>20% schema-pass, 10.7% safety compliance, 11.3% severity-in-band</strong>
+  (n=150, p50 5.6 s) — and a finished explainer 04. Both were committed, the README
+  results table gained its first measured row, and baseline (c) — base 3B + full
+  1,200-token teacher prompt — was launched in the background, since it depends only on
+  the base model and the eval set (see the "baselines run before training finishes"
+  decision in <a href="04-evaluation.html">explainer 04</a>).</p>
+
+  <h3>4 · Removing every obstacle between "token appears" and "training runs"</h3>
+  <p>So that the one human action unblocks everything with zero further friction:
+  a filesystem watcher now fires the moment <code>kaggle.json</code> appears in
+  <code>~/.kaggle/</code> or <code>~/Downloads</code>; the Kaggle CLI (2.2.3) is
+  pre-installed in the project venv; both kernel scripts compile clean and their
+  metadata is validated; the test suite (35 tests) and lint pass; and draft
+  <a href="https://github.com/gauricollab09/cabin-copilot-slm/pull/1">PR #1</a> is open
+  so every subsequent push is reviewable.</p>
+
+  <h3>5 · The dress rehearsal — simulate everything that can't run for real yet</h3>
+  <p>The stages downstream of training (filter → export → demo → serve) would normally
+  be exercised for the first time <em>after</em> a multi-hour GPU run — the worst
+  possible moment to discover a bug. Instead, each was run now with a stand-in:</p>
+
+  <table>
+    <tr><th>Stage</th><th>Stand-in used</th><th>Result</th></tr>
+    <tr><td>Quality filter</td><td>The 574 raw samples generated so far</td>
+        <td class="good">Works — dedup, balancing, severity/taxonomy stats produced (<code>data/dryrun/</code>)</td></tr>
+    <tr><td>Export → Ollama demo</td><td><code>cabin-copilot-dryrun</code>: base Qwen2.5-3B wrapped in the <em>exact</em> production Modelfile (same template, system prompt, stop tokens)</td>
+        <td class="good">Works — answers in the JSON contract; real GGUF becomes a one-line swap</td></tr>
+    <tr><td>FastAPI serving</td><td>Same stand-in via <code>CABIN_MODEL</code></td>
+        <td class="good">Works — and the failure path proved itself: the base model dropped a required field and the contract validator correctly returned 502 rather than passing garbage</td></tr>
+    <tr><td>Kaggle kernels</td><td>Static checks (compile + metadata)</td>
+        <td class="good">Clean — cannot be executed further without the token</td></tr>
+  </table>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Stand-in model over a tiny local training smoke-test</h3>
+    <p>A "train a toy model for 5 steps on CPU" smoke-test would validate the training
+    script's wiring, but the script's core path is 4-bit bitsandbytes quantization,
+    which requires CUDA — a CPU variant would test a <em>different</em> code path while
+    installing ~3 GB of dependencies, and would brush against the owner's explicit
+    "no training on my machine" constraint. The stand-in approach tests everything
+    downstream of training against the real serving stack instead; the training script
+    itself gets its shakedown on the first Kaggle run, where its failure costs minutes,
+    not hours, because everything around it is already proven.</p>
+  </div>
+
+  <h3>6 · Baseline (c) landed — and completed the argument</h3>
+  <p>Base 3B with the full teacher prompt: <strong>100% schema-pass but only 55.3%
+  safety compliance, at +54% median latency</strong> (8.6 s vs 5.6 s). Together the two
+  baselines are the project's thesis in numbers: prompting buys <em>format</em>, not
+  <em>judgment</em>, and pays 1,200 prompt tokens on every call. The fine-tune's target
+  is now precise — teacher-prompt behaviour (≥55% safety, ideally far above) at
+  student-prompt latency.</p>
+
+  <h2>Honest ledger</h2>
+  <ul>
+    <li><strong>Lost:</strong> ~7 hours of overnight generation time to laptop sleep — a
+    process-supervision failure, now mitigated with <code>caffeinate</code>.</li>
+    <li><strong>Unproven:</strong> the training script end-to-end and the 14B-teacher
+    kernel — both gated on the Kaggle token, both deliberately left for the first cloud
+    run with everything around them de-risked.</li>
+    <li><strong>Known skew:</strong> the dry-run filter output over-represents benign
+    cells (the generator walks scenarios in order); the real filter run happens on the
+    complete 2,400.</li>
+  </ul>
+
+  <footer>Next: <a href="07-state-and-runbook.html">07 · State &amp; runbook</a></footer>
+</main>
+</body>
+</html>
