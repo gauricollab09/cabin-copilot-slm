@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04 · Evaluation — CabinCopilot-SLM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">← All explainers</a></p>
+  <h1>04 · Evaluation</h1>
+  <p class="meta">How to know the fine-tune actually worked — July 2026</p>
+
+  <h2>What question is each metric answering?</h2>
+  <table>
+    <tr><th>Metric</th><th>Question</th><th>How</th></tr>
+    <tr><td>Schema-pass rate</td><td>Can a machine consume the output?</td>
+        <td>Strict Pydantic validation of the JSON contract; the single most common SLM
+        failure mode.</td></tr>
+    <tr><td>Safety compliance</td><td>Would you put it in a car?</td>
+        <td>The same eight deterministic rules that gated training data, now as a score.
+        Rule-level breakdown shows <em>which</em> behaviours regressed.</td></tr>
+    <tr><td>Severity-in-band</td><td>Is the urgency calibrated?</td>
+        <td>Response severity inside the scenario's ground-truth band (never seen by any
+        model at eval time).</td></tr>
+    <tr><td>Pairwise judge win-rate</td><td>Is it actually <em>better</em>, not just valid?</td>
+        <td>An LLM judge picks between two anonymized responses per scenario.</td></tr>
+    <tr><td>Latency p50/p95 + footprint</td><td>Does the on-device claim hold?</td>
+        <td>Measured on the 2019 Intel MacBook through Ollama.</td></tr>
+  </table>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Three-way comparison, chosen to kill the two obvious rebuttals</h3>
+    <p><strong>(a) Fine-tuned 3B + student prompt</strong> vs
+    <strong>(b) base 3B + student prompt</strong> isolates what training added.
+    vs <strong>(c) base 3B + full 1,200-token teacher prompt</strong> answers
+    "couldn't you just prompt it better?" — the prompting-only alternative pays 20× the
+    prompt tokens on every inference, so matching or beating it is the product win.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Held-out scenarios come from a different seed, not a split</h3>
+    <p>The eval set (n=150, seed 101) is generated independently of the training
+    scenarios (seed 7) over the same taxonomy — distributionally identical, zero overlap
+    by construction, and stratified across all 15 cells including the rare critical
+    ones a random split can starve.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Judge hygiene: anonymized, order-randomized, mechanical tie-breaks</h3>
+    <p>The pairwise judge never sees model names; presentation order is shuffled by a
+    per-scenario seeded coin flip (position bias is real and measurable); and scenarios
+    where one side failed to produce parsable JSON are decided mechanically — a valid
+    response beats a broken one without spending judge tokens. Judge temperature is 0.</p>
+    <p class="rejected"><strong>Rejected: single-response 1–10 scoring for comparison.</strong>
+    Absolute scores from LLM judges are poorly calibrated across runs; pairwise
+    preferences are far more stable. (Single-sample rubric scoring <em>is</em> used
+    upstream, but only as a data filter where miscalibration costs little.)</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Baselines run before training finishes</h3>
+    <p>Baseline numbers (b) and (c) depend only on the base model and the eval set, so
+    they run early on the local machine. If the fine-tune later fails to clear them, the
+    project's claim changes honestly — the harness is the arbiter, not the narrative.</p>
+  </div>
+
+  <h2>Results</h2>
+  <p><em>Populated from <code>eval/results/*.json</code> after the fine-tuned model is
+  exported.</em></p>
+  <!-- RESULTS -->
+
+  <footer>Next: <a href="05-export-serving.html">05 · Export &amp; serving</a></footer>
+</main>
+</body>
+</html>

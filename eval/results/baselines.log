@@ -1,0 +1,11 @@
+{
+  "label": "qwen2.5-3b-base+student-prompt",
+  "model": "qwen2.5:3b",
+  "system_prompt": "student",
+  "n_scenarios": 150,
+  "schema_pass_rate": 0.2,
+  "safety_compliance_rate": 0.1067,
+  "severity_in_band_rate": 0.1133,
+  "latency_p50_s": 5.584,
+  "latency_p95_s": 10.002
+}

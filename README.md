@@ -52,9 +52,13 @@ alerts ⇒ suppress low-severity nagging*).
 
 | Model | System prompt | Schema-pass | Safety compliance | Severity-in-band | Judge win-rate vs base |
 |---|---|---|---|---|---|
-| Qwen2.5-3B base | student (60 tok) | – | – | – | – |
+| Qwen2.5-3B base | student (60 tok) | 20.0% | 10.7% | 11.3% | – |
 | Qwen2.5-3B base | teacher (1.2k tok) | – | – | – | – |
 | **CabinCopilot-3B (ours)** | student (60 tok) | – | – | – | – |
+
+Baseline (student prompt, n=150, local Ollama Q4_K_M on a 2019 Intel MacBook,
+p50 latency 5.6 s): the base model can barely hold the contract without the full
+engineered prompt — that gap is what fine-tuning must close.
 
 ## Quickstart
 
