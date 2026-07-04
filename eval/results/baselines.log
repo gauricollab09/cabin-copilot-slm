@@ -9,3 +9,14 @@
   "latency_p50_s": 5.584,
   "latency_p95_s": 10.002
 }
+{
+  "label": "qwen2.5-3b-base+teacher-prompt",
+  "model": "qwen2.5:3b",
+  "system_prompt": "teacher",
+  "n_scenarios": 150,
+  "schema_pass_rate": 1.0,
+  "safety_compliance_rate": 0.5533,
+  "severity_in_band_rate": 0.5533,
+  "latency_p50_s": 8.601,
+  "latency_p95_s": 13.956
+}

@@ -71,8 +71,18 @@
   </div>
 
   <h2>Results</h2>
-  <p><em>Populated from <code>eval/results/*.json</code> after the fine-tuned model is
-  exported.</em></p>
+  <table>
+    <tr><th>Model + prompt</th><th>Schema-pass</th><th>Safety</th><th>Severity-in-band</th><th>p50 / p95 latency</th></tr>
+    <tr><td>base 3B + student (60 tok)</td><td>20.0%</td><td>10.7%</td><td>11.3%</td><td>5.6 s / 10.0 s</td></tr>
+    <tr><td>base 3B + teacher (1.2k tok)</td><td>100%</td><td>55.3%</td><td>55.3%</td><td>8.6 s / 14.0 s</td></tr>
+    <tr><td><strong>fine-tuned 3B + student</strong></td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+  </table>
+  <p>The baseline pair already makes the argument: the engineered prompt takes
+  schema validity from 20% to 100% but safety compliance only to 55% — and costs
+  54% more median latency, every single call. Prompting buys <em>format</em>, not
+  <em>judgment</em>. The fine-tune's job is teacher-prompt behaviour at
+  student-prompt latency; its row fills in from <code>eval/results/</code> after
+  training.</p>
   <!-- RESULTS -->
 
   <footer>Next: <a href="05-export-serving.html">05 · Export &amp; serving</a></footer>
