@@ -20,8 +20,12 @@
         <td>35 tests passing, lint clean</td></tr>
     <tr><td>Scenarios (train 2,400 / eval 150)</td><td class="good">Done</td>
         <td>Seeded (7 / 101), deterministic, stratified over 15 taxonomy cells</td></tr>
-    <tr><td>Fallback dataset (hinted llama3.2 teacher)</td><td class="warn">Running</td>
-        <td>Resumed after sleep-death at 508/2,400; ~99% parse success; machine pinned awake</td></tr>
+    <tr><td>Fallback dataset (hinted llama3.2 teacher)</td><td class="good">Done</td>
+        <td>2,400/2,400 generated (1,846 parse-ok). First filter pass: 220 balanced samples —
+        critical class (20 survivors) sets the 2.5× cap</td></tr>
+    <tr><td>Critical-cell top-up (800 scenarios, seed 21)</td><td class="warn">Running</td>
+        <td>Targeted at microsleep_critical / gaze_offroad_long / phone_moving /
+        child_distraction; re-filter of merged raw follows — projected ~3× dataset</td></tr>
     <tr><td>Baseline (b): base 3B + student prompt</td><td class="good">Done</td>
         <td>20% schema · 10.7% safety · 11.3% in-band · p50 5.6 s</td></tr>
     <tr><td>Baseline (c): base 3B + teacher prompt</td><td class="good">Done</td>
