@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cabin-copilot-slm"
+version = "0.1.0"
+description = "Fine-tuned on-device SLM that turns driver-monitoring signals into safe, context-aware coaching"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Gauri Tulsulkar" }]
+dependencies = [
+    "pydantic>=2.5",
+    "httpx>=0.27",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+serve = ["fastapi>=0.110", "uvicorn>=0.29"]
+dev = ["pytest>=8.0", "ruff>=0.4", "fastapi>=0.110", "uvicorn>=0.29"]
+
+[project.scripts]
+cabin-copilot = "cabin_copilot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# prompt bodies contain single-line JSON few-shot examples by design
+"src/cabin_copilot/teacher/prompts.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

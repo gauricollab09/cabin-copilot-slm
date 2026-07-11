@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 · Export &amp; Serving — CabinCopilot-SLM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">← All explainers</a></p>
+  <h1>05 · Export &amp; Serving</h1>
+  <p class="meta">From adapter to something a car (or a 2019 laptop) can run — July 2026</p>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Export path: merge → GGUF → Q4_K_M, all inside the training kernel</h3>
+    <p>The LoRA adapter is merged into the fp16 base, converted with llama.cpp's
+    <code>convert_hf_to_gguf.py</code>, and quantized to <strong>Q4_K_M</strong> — the
+    quality/size sweet spot (~1.9 GB for 3B, runs comfortably in 16 GB RAM on CPU).
+    Doing this on Kaggle means the laptop only downloads the final ~2 GB artifact, not
+    a 6 GB fp16 model, and the Intel Mac never has to run the conversion toolchain.</p>
+    <p class="rejected"><strong>Rejected: shipping the adapter only.</strong> Honest
+    on-device demos don't require the user to own a GPU to merge weights.<br>
+    <strong>Rejected: Q8/Q5.</strong> Bigger with no measurable win on this narrow,
+    structured task; Q4_K_M's regression is caught by the eval harness if it exists.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>The student system prompt is baked into the Ollama Modelfile</h3>
+    <p>Callers send <em>only</em> the signals JSON. The 60-token prompt ships inside the
+    model artifact (<code>SYSTEM</code> block), temperature is pinned to 0, and the ChatML
+    template matches Qwen2.5's training format. The deployable unit is
+    "model + contract", not "model + prompt engineering guide".</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Serving validates the contract at the boundary, not inside the model</h3>
+    <p>The FastAPI service (<code>POST /coach</code>) validates inbound signals with the
+    same Pydantic models used everywhere else, and validates the model's output against
+    the contract before returning it — a malformed model response is a <code>502</code>,
+    never silently forwarded. The LLM runtime is behind the same pluggable backend
+    interface as the teacher, so the service is runtime-agnostic (Ollama locally,
+    anything OpenAI-compatible in production).</p>
+  </div>
+
+  <h2>On-device numbers</h2>
+  <p><em>Filled after export: GGUF size, load RSS, tokens/s and p50/p95 latency on the
+  2019 Intel MacBook Pro, measured by <code>cabin-copilot eval</code> against the local
+  Ollama model.</em></p>
+  <!-- ONDEVICE_NUMBERS -->
+
+  <footer>Next: <a href="06-build-sessions.html">06 · The build sessions</a></footer>
+</main>
+</body>
+</html>

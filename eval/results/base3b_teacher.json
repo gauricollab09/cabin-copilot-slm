@@ -1,0 +1,6154 @@
+{
+  "summary": {
+    "label": "qwen2.5-3b-base+teacher-prompt",
+    "model": "qwen2.5:3b",
+    "system_prompt": "teacher",
+    "n_scenarios": 150,
+    "schema_pass_rate": 1.0,
+    "safety_compliance_rate": 0.5533,
+    "severity_in_band_rate": 0.5533,
+    "latency_p50_s": 8.601,
+    "latency_p95_s": 13.956
+  },
+  "records": [
+    {
+      "scenario_id": "eval-benign_cruise-101-0000",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 95.9,
+        "trip_minutes": 14,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 10.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 35
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with minimal distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with minimal distractions."
+      },
+      "error": null,
+      "latency_s": 39.528,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0001",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 76.5,
+        "trip_minutes": 56,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 3.9,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 197
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional glances away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional glances away from the road."
+      },
+      "error": null,
+      "latency_s": 8.207,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0002",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 89.8,
+        "trip_minutes": 55,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 6.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 109
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.279,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0003",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 77.7,
+        "trip_minutes": 32,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 7.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 211
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your gaze is away from the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with a brief glance off-road during morning driving.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your gaze is away from the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with a brief glance off-road during morning driving."
+      },
+      "error": null,
+      "latency_s": 8.898,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0004",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 91.0,
+        "trip_minutes": 42,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 7.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 89
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 6.719,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0005",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 63.8,
+        "trip_minutes": 14,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 7.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 54
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional brief glances off-road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional brief glances off-road."
+      },
+      "error": null,
+      "latency_s": 7.024,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0006",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 68.2,
+        "trip_minutes": 9,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 7.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 206
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional glances off-road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional glances off-road."
+      },
+      "error": null,
+      "latency_s": 7.711,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0007",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 50.6,
+        "trip_minutes": 56,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 5.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 200
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Taking a quick break might help.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Taking a quick break might help.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.448,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0008",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 86.8,
+        "trip_minutes": 21,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 9.0,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 71
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your gaze is away from the road for a bit.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with brief distraction.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your gaze is away from the road for a bit.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with brief distraction."
+      },
+      "error": null,
+      "latency_s": 8.163,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0009",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 93.6,
+        "trip_minutes": 56,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 5.7,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 93
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 6.815,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0010",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 84.3,
+        "trip_minutes": 34,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 3.9,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 84
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional brief glances off-road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional brief glances off-road."
+      },
+      "error": null,
+      "latency_s": 7.488,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0011",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 48.7,
+        "trip_minutes": 37,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 7.0,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 178
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.6,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0012",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 76.8,
+        "trip_minutes": 7,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 3.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 42
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is maintaining focus on the road with minimal eye closure and no phone use.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is maintaining focus on the road with minimal eye closure and no phone use."
+      },
+      "error": null,
+      "latency_s": 7.56,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0013",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 70.3,
+        "trip_minutes": 30,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 12.0,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 107
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no distractions or history.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no distractions or history."
+      },
+      "error": null,
+      "latency_s": 8.222,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0014",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 40.4,
+        "trip_minutes": 13,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 5.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 236
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no distractions."
+      },
+      "error": null,
+      "latency_s": 8.279,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-benign_cruise-101-0015",
+      "taxonomy": "benign_cruise",
+      "signals": {
+        "speed_kmh": 49.3,
+        "trip_minutes": 57,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 12.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 92
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no other concerning factors.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no other concerning factors."
+      },
+      "error": null,
+      "latency_s": 7.232,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0000",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 65.0,
+        "trip_minutes": 18,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 3.7,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 446
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 8.795,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0001",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 96.8,
+        "trip_minutes": 55,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 11.8,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "right_mirror",
+          "off_road_ms": 492
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 6.694,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0002",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 58.8,
+        "trip_minutes": 23,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 12.9,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "right_mirror",
+          "off_road_ms": 651
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with minor distractions, suggests a short break might help.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with minor distractions, suggests a short break might help."
+      },
+      "error": null,
+      "latency_s": 6.952,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0003",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 58.5,
+        "trip_minutes": 6,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 13.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 363
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional rearview checks.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional rearview checks."
+      },
+      "error": null,
+      "latency_s": 8.516,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0004",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 42.7,
+        "trip_minutes": 45,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 4.1,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "right_mirror",
+          "off_road_ms": 554
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional right mirror check.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional right mirror check."
+      },
+      "error": null,
+      "latency_s": 9.043,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0005",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 48.5,
+        "trip_minutes": 43,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 10.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 429
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 6.851,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0006",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 71.5,
+        "trip_minutes": 16,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 12.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "left_mirror",
+          "off_road_ms": 633
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.934,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0007",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 55.5,
+        "trip_minutes": 13,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 10.3,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 765
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is maintaining attentive gaze and no phone use; eye closure is within normal range.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is maintaining attentive gaze and no phone use; eye closure is within normal range."
+      },
+      "error": null,
+      "latency_s": 6.524,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0008",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 73.6,
+        "trip_minutes": 6,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 3.4,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "left_mirror",
+          "off_road_ms": 600
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is alert with no eye closure or head nod events; routine monitoring.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is alert with no eye closure or head nod events; routine monitoring."
+      },
+      "error": null,
+      "latency_s": 6.119,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0009",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 100.0,
+        "trip_minutes": 16,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 7.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 468
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional rearview checks.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional rearview checks."
+      },
+      "error": null,
+      "latency_s": 10.512,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mirror_check-101-0010",
+      "taxonomy": "mirror_check",
+      "signals": {
+        "speed_kmh": 62.7,
+        "trip_minutes": 31,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 5.8,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 814
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is attentive with minimal eye closure and no phone use; safe driving.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is attentive with minimal eye closure and no phone use; safe driving."
+      },
+      "error": null,
+      "latency_s": 7.308,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0000",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 51,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 9.6,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 9981
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with prolonged gaze on the device at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with prolonged gaze on the device at night."
+      },
+      "error": null,
+      "latency_s": 9.197,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0001",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 22,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 6.5,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 6757
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Long gaze-off-road with phone in hand at a stationary vehicle.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Long gaze-off-road with phone in hand at a stationary vehicle."
+      },
+      "error": null,
+      "latency_s": 8.185,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0002",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 40,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 3.1,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 11867
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Long gaze-off-road with phone in hand during a long afternoon drive.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Long gaze-off-road with phone in hand during a long afternoon drive."
+      },
+      "error": null,
+      "latency_s": 8.018,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0003",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 33,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 5.6,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 12280
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Long gaze-off-road at low speed with phone in hand.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Long gaze-off-road at low speed with phone in hand."
+      },
+      "error": null,
+      "latency_s": 8.609,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0004",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 28,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 7.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 2031
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with gaze away from road during daytime driving.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with gaze away from road during daytime driving."
+      },
+      "error": null,
+      "latency_s": 9.548,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0005",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 37,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 13.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 14251
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and hands-free.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with prolonged gaze on the device at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and hands-free.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with prolonged gaze on the device at night."
+      },
+      "error": null,
+      "latency_s": 9.162,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0006",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 8,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 10.8,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 8098
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"critical\",\"message\":\"Pull over now. You need rest.\",\"action\":\"alert_drowsiness\",\"rationale\":\"Severe drowsiness with prolonged gaze off-road at zero speed.\"}",
+      "response": {
+        "severity": "critical",
+        "message": "Pull over now. You need rest.",
+        "action": "alert_drowsiness",
+        "rationale": "Severe drowsiness with prolonged gaze off-road at zero speed."
+      },
+      "error": null,
+      "latency_s": 9.447,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-stopped_phone-101-0007",
+      "taxonomy": "stopped_phone",
+      "signals": {
+        "speed_kmh": 0.0,
+        "trip_minutes": 58,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 8.8,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 5494
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with long gaze-off-road during nighttime driving.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with long gaze-off-road during nighttime driving."
+      },
+      "error": null,
+      "latency_s": 11.748,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0000",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 44.1,
+        "trip_minutes": 42,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 11.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 322
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You're talking a bit too much.\",\"action\":\"suggest_break\",\"rationale\":\"Driver is engaged in conversation and showing signs of fatigue.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You're talking a bit too much.",
+        "action": "suggest_break",
+        "rationale": "Driver is engaged in conversation and showing signs of fatigue."
+      },
+      "error": null,
+      "latency_s": 9.107,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0001",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 44.9,
+        "trip_minutes": 21,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 4.0,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 245
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You've been taking some breaks.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional breaks but still attentive driving.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You've been taking some breaks.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional breaks but still attentive driving."
+      },
+      "error": null,
+      "latency_s": 8.061,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0002",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 98.1,
+        "trip_minutes": 49,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 4.6,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 89
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 3,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You're driving with others.\",\"action\":\"suggest_break\",\"rationale\":\"Normal conversation and no distractions, but slight eye closure during a short trip.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You're driving with others.",
+        "action": "suggest_break",
+        "rationale": "Normal conversation and no distractions, but slight eye closure during a short trip."
+      },
+      "error": null,
+      "latency_s": 10.226,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0003",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 41.1,
+        "trip_minutes": 28,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 4.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 7
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 3,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You've been yawning a bit.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional yawn, no other risk factors.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You've been yawning a bit.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional yawn, no other risk factors."
+      },
+      "error": null,
+      "latency_s": 8.925,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0004",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 73.6,
+        "trip_minutes": 20,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 4.4,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 55
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is alert with no signs of drowsiness or distraction.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is alert with no signs of drowsiness or distraction."
+      },
+      "error": null,
+      "latency_s": 7.37,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0005",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 69.7,
+        "trip_minutes": 25,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 4.6,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 255
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is alert with no drowsiness indicators and engaged in conversation, maintaining focus on the road.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is alert with no drowsiness indicators and engaged in conversation, maintaining focus on the road."
+      },
+      "error": null,
+      "latency_s": 7.05,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0006",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 52.8,
+        "trip_minutes": 14,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 6.7,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 198
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You're talking a bit more than usual.\",\"action\":\"suggest_break\",\"rationale\":\"Gentle reminder for occasional phone use and increased conversation.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You're talking a bit more than usual.",
+        "action": "suggest_break",
+        "rationale": "Gentle reminder for occasional phone use and increased conversation."
+      },
+      "error": null,
+      "latency_s": 8.3,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-passenger_chat-101-0007",
+      "taxonomy": "passenger_chat",
+      "signals": {
+        "speed_kmh": 78.4,
+        "trip_minutes": 43,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 5.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 238
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 3,
+          "child_present": false,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You've been yawning a bit.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional yawn and no other concerning behaviors.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You've been yawning a bit.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional yawn and no other concerning behaviors."
+      },
+      "error": null,
+      "latency_s": 8.452,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0000",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 49.3,
+        "trip_minutes": 26,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 56.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 107
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.702,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0001",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 68.5,
+        "trip_minutes": 20,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 40.8,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 224
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.604,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0002",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 53.8,
+        "trip_minutes": 25,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 40.1,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 167
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.537,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0003",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 59.3,
+        "trip_minutes": 12,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 50.1,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 146
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"You've been staring at the road for a while. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Moderate drowsiness with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "You've been staring at the road for a while. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Moderate drowsiness with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 9.737,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0004",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 50.8,
+        "trip_minutes": 30,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 49.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 96
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.439,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0005",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 47.8,
+        "trip_minutes": 29,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 45.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 45
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of drowsiness with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early signs of drowsiness with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.897,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0006",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 83.3,
+        "trip_minutes": 6,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 43.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 171
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.745,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-sensor_ambiguity-101-0007",
+      "taxonomy": "sensor_ambiguity",
+      "signals": {
+        "speed_kmh": 43.0,
+        "trip_minutes": 16,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 54.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 167
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.747,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0000",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 75.0,
+        "trip_minutes": 102,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 23.1,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 88
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 3
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 9.091,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0001",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 59.2,
+        "trip_minutes": 61,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 21.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 183
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 4
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Avoid long gazes.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early fatigue with occasional eye closure and short gaze away from road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Avoid long gazes.",
+        "action": "reduce_distraction",
+        "rationale": "Early fatigue with occasional eye closure and short gaze away from road."
+      },
+      "error": null,
+      "latency_s": 8.525,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0002",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 48.6,
+        "trip_minutes": 85,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 23.0,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 215
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 5
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 13.79,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0003",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 95.0,
+        "trip_minutes": 198,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 20.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 65
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 6
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early drowsiness pattern with a short gaze-off-road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Early drowsiness pattern with a short gaze-off-road."
+      },
+      "error": null,
+      "latency_s": 23.595,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0004",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 60.2,
+        "trip_minutes": 81,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 17.8,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 80
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 5
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 11.238,
+      "violations": [
+        "alert_fatigue_not_suppressed",
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0005",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 44.5,
+        "trip_minutes": 110,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 15.5,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 56
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 3
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 9.017,
+      "violations": [
+        "alert_fatigue_not_suppressed",
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0006",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 86.9,
+        "trip_minutes": 99,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 21.8,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 216
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 5
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Avoid distractions.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early fatigue with head nod events and gaze off-road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Avoid distractions.",
+        "action": "reduce_distraction",
+        "rationale": "Early fatigue with head nod events and gaze off-road."
+      },
+      "error": null,
+      "latency_s": 8.125,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-alert_fatigue-101-0007",
+      "taxonomy": "alert_fatigue",
+      "signals": {
+        "speed_kmh": 93.1,
+        "trip_minutes": 104,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 23.8,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 129
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 3
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Avoid distractions.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early fatigue with head nod events and gaze off-road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Avoid distractions.",
+        "action": "reduce_distraction",
+        "rationale": "Early fatigue with head nod events and gaze off-road."
+      },
+      "error": null,
+      "latency_s": 7.529,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0000",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 76.0,
+        "trip_minutes": 108,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 18.3,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 91
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with moderate eye closure and occasional yawns.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with moderate eye closure and occasional yawns."
+      },
+      "error": null,
+      "latency_s": 9.515,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0001",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 69.5,
+        "trip_minutes": 93,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 28.1,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 127
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 8.422,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0002",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 89.8,
+        "trip_minutes": 136,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 17.9,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 216
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 7.918,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0003",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 41.0,
+        "trip_minutes": 179,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 27.5,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 33
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 9.317,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0004",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 59.9,
+        "trip_minutes": 119,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 25.5,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 209
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 8.184,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0005",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 84.4,
+        "trip_minutes": 151,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 24.1,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 0
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. You've been yawning a bit.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or prolonged gazes.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. You've been yawning a bit.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or prolonged gazes."
+      },
+      "error": null,
+      "latency_s": 11.476,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0006",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 72.3,
+        "trip_minutes": 128,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 16.9,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 82
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 19.378,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0007",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 75.3,
+        "trip_minutes": 126,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 27.6,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 50
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 13.004,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0008",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 93.8,
+        "trip_minutes": 112,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 20.5,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 61
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 9.243,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0009",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 70.1,
+        "trip_minutes": 135,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 16.1,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 149
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 10.003,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-mild_fatigue-101-0010",
+      "taxonomy": "mild_fatigue",
+      "signals": {
+        "speed_kmh": 72.9,
+        "trip_minutes": 140,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 17.1,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 116
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 7.947,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0000",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 45.8,
+        "trip_minutes": 236,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 12.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 216
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.087,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0001",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 56.0,
+        "trip_minutes": 219,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 13.9,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 200
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 8.238,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0002",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 57.8,
+        "trip_minutes": 356,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 14.8,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 97
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional yawn, no other risks.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional yawn, no other risks."
+      },
+      "error": null,
+      "latency_s": 7.234,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0003",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 46.9,
+        "trip_minutes": 211,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 17.3,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 74
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 9.648,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0004",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 69.1,
+        "trip_minutes": 186,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 22.6,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 234
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 9.46,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0005",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 50.9,
+        "trip_minutes": 338,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 17.3,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 244
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"You've been yawning a bit. Take a quick break if you can.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional yawns during the afternoon drive.\"}",
+      "response": {
+        "severity": "info",
+        "message": "You've been yawning a bit. Take a quick break if you can.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional yawns during the afternoon drive."
+      },
+      "error": null,
+      "latency_s": 9.167,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0006",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 90.3,
+        "trip_minutes": 271,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 14.7,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 53
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early signs of drowsiness with occasional gaze off-road at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Early signs of drowsiness with occasional gaze off-road at night."
+      },
+      "error": null,
+      "latency_s": 8.338,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-long_trip-101-0007",
+      "taxonomy": "long_trip",
+      "signals": {
+        "speed_kmh": 61.9,
+        "trip_minutes": 263,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 19.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 226
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and brief gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and brief gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 9.407,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0000",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 58.0,
+        "trip_minutes": 56,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 7.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "instrument_cluster",
+          "off_road_ms": 865
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Your eyes are starting to feel heavy.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Your eyes are starting to feel heavy.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.553,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0001",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 68.2,
+        "trip_minutes": 40,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 3.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 951
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional glances away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional glances away from the road."
+      },
+      "error": null,
+      "latency_s": 8.925,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0002",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 65.4,
+        "trip_minutes": 58,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 12.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1168
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Your gaze is a bit off. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Your gaze is a bit off. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.356,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0003",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 63.2,
+        "trip_minutes": 21,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 4.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1433
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay focused on the road, please.\",\"action\":\"suggest_break\",\"rationale\":\"Passive gaze at passenger with no other risk factors.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay focused on the road, please.",
+        "action": "suggest_break",
+        "rationale": "Passive gaze at passenger with no other risk factors."
+      },
+      "error": null,
+      "latency_s": 8.886,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0004",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 69.6,
+        "trip_minutes": 30,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 8.4,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1202
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay focused. Keep your gaze on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Gentle reminder for afternoon driving with minimal distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay focused. Keep your gaze on the road.",
+        "action": "suggest_break",
+        "rationale": "Gentle reminder for afternoon driving with minimal distractions."
+      },
+      "error": null,
+      "latency_s": 7.7,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0005",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 37.6,
+        "trip_minutes": 35,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 10.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "instrument_cluster",
+          "off_road_ms": 1398
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Taking a few moments to glance away from the instruments might be helpful.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no other risk factors present.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Taking a few moments to glance away from the instruments might be helpful.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no other risk factors present."
+      },
+      "error": null,
+      "latency_s": 9.254,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0006",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 65.5,
+        "trip_minutes": 60,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 7.1,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "instrument_cluster",
+          "off_road_ms": 1295
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.698,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0007",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 65.6,
+        "trip_minutes": 59,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 11.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1112
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Your gaze is a bit off. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Your gaze is a bit off. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 7.588,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0008",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 59.1,
+        "trip_minutes": 27,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 8.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1095
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Gazing at the passenger might be a good break.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no other concerning signals.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Gazing at the passenger might be a good break.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no other concerning signals."
+      },
+      "error": null,
+      "latency_s": 7.062,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0009",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 30.7,
+        "trip_minutes": 21,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 13.8,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 942
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road. You've been yawning.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional yawn and no head nod events.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road. You've been yawning.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional yawn and no head nod events."
+      },
+      "error": null,
+      "latency_s": 7.469,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_short-101-0010",
+      "taxonomy": "gaze_offroad_short",
+      "signals": {
+        "speed_kmh": 55.6,
+        "trip_minutes": 11,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 6.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1093
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay focused on the road, please.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional glances away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay focused on the road, please.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional glances away from the road."
+      },
+      "error": null,
+      "latency_s": 7.581,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0000",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 95.9,
+        "trip_minutes": 172,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 30.3,
+          "yawn_count_5min": 4,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 169
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 8.216,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0001",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 66.3,
+        "trip_minutes": 156,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 35.5,
+          "yawn_count_5min": 4,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 66
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 8.875,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0002",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 58.8,
+        "trip_minutes": 105,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 29.2,
+          "yawn_count_5min": 2,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 107
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 7.966,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0003",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 66.3,
+        "trip_minutes": 70,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 38.0,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 36
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be more alert. Your eyes are starting to close.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of drowsiness with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be more alert. Your eyes are starting to close.",
+        "action": "suggest_break",
+        "rationale": "Early signs of drowsiness with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 8.77,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0004",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 46.9,
+        "trip_minutes": 84,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 40.6,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 245
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 11.933,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0005",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 42.1,
+        "trip_minutes": 210,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 29.4,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 197
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 10.658,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0006",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 42.5,
+        "trip_minutes": 69,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 25.3,
+          "yawn_count_5min": 2,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 119
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional yawns and no head nods.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional yawns and no head nods."
+      },
+      "error": null,
+      "latency_s": 9.923,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0007",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 75.5,
+        "trip_minutes": 146,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 28.3,
+          "yawn_count_5min": 4,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 32
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 10.442,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0008",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 49.7,
+        "trip_minutes": 167,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 39.4,
+          "yawn_count_5min": 3,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 61
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and brief gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and brief gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 10.618,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-night_fatigue-101-0009",
+      "taxonomy": "night_fatigue",
+      "signals": {
+        "speed_kmh": 50.8,
+        "trip_minutes": 139,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 30.6,
+          "yawn_count_5min": 2,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 124
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of drowsiness. Take a short break if needed.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of drowsiness. Take a short break if needed.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 10.405,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0000",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 32.0,
+        "trip_minutes": 14,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 3.5,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 2525
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Long gaze-off-road during a night trip with passenger and conversation.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Long gaze-off-road during a night trip with passenger and conversation."
+      },
+      "error": null,
+      "latency_s": 10.209,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0001",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 81.3,
+        "trip_minutes": 53,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 8.4,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 1618
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay alert. Keep your eyes on the road.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with no phone use or distractions.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay alert. Keep your eyes on the road.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with no phone use or distractions."
+      },
+      "error": null,
+      "latency_s": 9.619,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0002",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 62.8,
+        "trip_minutes": 58,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 10.1,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 2577
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 3,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Early drowsiness with prolonged gaze off-road during a busy trip.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Early drowsiness with prolonged gaze off-road during a busy trip."
+      },
+      "error": null,
+      "latency_s": 9.017,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0003",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 43.4,
+        "trip_minutes": 43,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 3.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 1209
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"none\",\"message\":\"\",\"action\":\"none\",\"rationale\":\"Driver is attentive with no eye closure, maintaining focus on the rearview mirror.\"}",
+      "response": {
+        "severity": "none",
+        "message": "",
+        "action": "none",
+        "rationale": "Driver is attentive with no eye closure, maintaining focus on the rearview mirror."
+      },
+      "error": null,
+      "latency_s": 8.519,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0004",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 67.5,
+        "trip_minutes": 19,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 12.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "rearview_mirror",
+          "off_road_ms": 2562
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the rearview mirror.\",\"action\":\"reduce_distraction\",\"rationale\":\"Sustained gaze-off-road with no phone use, warning level risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the rearview mirror.",
+        "action": "reduce_distraction",
+        "rationale": "Sustained gaze-off-road with no phone use, warning level risk."
+      },
+      "error": null,
+      "latency_s": 9.31,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0005",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 45.9,
+        "trip_minutes": 13,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 6.8,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1042
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay focused on the road, please.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with passenger distraction in a busy cabin.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay focused on the road, please.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with passenger distraction in a busy cabin."
+      },
+      "error": null,
+      "latency_s": 8.861,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0006",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 46.1,
+        "trip_minutes": 37,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 10.0,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1879
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 3,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road while chatting with your passengers.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with a passenger present and some distraction.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road while chatting with your passengers.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with a passenger present and some distraction."
+      },
+      "error": null,
+      "latency_s": 8.254,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-child_distraction-101-0007",
+      "taxonomy": "child_distraction",
+      "signals": {
+        "speed_kmh": 81.8,
+        "trip_minutes": 18,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 6.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 1661
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": true,
+          "conversation": true
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Keep your gaze on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Gaze off-road with two passengers and a child present.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Keep your gaze on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Gaze off-road with two passengers and a child present."
+      },
+      "error": null,
+      "latency_s": 9.104,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0000",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 39.3,
+        "trip_minutes": 9,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 4.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 2236
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and look back at the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with gaze away from road during drowsy driving.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and look back at the road.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with gaze away from road during drowsy driving."
+      },
+      "error": null,
+      "latency_s": 9.177,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0001",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 71.2,
+        "trip_minutes": 31,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 11.7,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 620
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Early drowsiness indicators with gaze away from the road at highway speed.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Early drowsiness indicators with gaze away from the road at highway speed."
+      },
+      "error": null,
+      "latency_s": 13.956,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0002",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 48.7,
+        "trip_minutes": 39,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 7.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 519
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and out of sight.\",\"action\":\"phone_reminder\",\"rationale\":\"Early drowsiness with phone use at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and out of sight.",
+        "action": "phone_reminder",
+        "rationale": "Early drowsiness with phone use at night."
+      },
+      "error": null,
+      "latency_s": 16.807,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0003",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 45.4,
+        "trip_minutes": 32,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 10.8,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 898
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be more alert. Your eyes are closing.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of drowsiness with occasional yawns and eye closure.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be more alert. Your eyes are closing.",
+        "action": "suggest_break",
+        "rationale": "Early signs of drowsiness with occasional yawns and eye closure."
+      },
+      "error": null,
+      "latency_s": 9.716,
+      "violations": [
+        "phone_while_moving_undercalled",
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0004",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 42.5,
+        "trip_minutes": 60,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 13.4,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 1087
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be more alert. Your eyes are closing.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue indicators with occasional yawns and eye closure.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be more alert. Your eyes are closing.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue indicators with occasional yawns and eye closure."
+      },
+      "error": null,
+      "latency_s": 20.962,
+      "violations": [
+        "phone_while_moving_undercalled",
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0005",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 42.4,
+        "trip_minutes": 31,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 12.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 1996
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Early drowsiness indicators with prolonged gaze-off-road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Early drowsiness indicators with prolonged gaze-off-road."
+      },
+      "error": null,
+      "latency_s": 23.775,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0006",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 79.4,
+        "trip_minutes": 50,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 6.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 1805
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Early drowsiness with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Early drowsiness with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 11.004,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0007",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 41.0,
+        "trip_minutes": 57,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 10.7,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 2047
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off while driving.\",\"action\":\"phone_reminder\",\"rationale\":\"Eye closure and gaze on the phone indicate potential drowsiness at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off while driving.",
+        "action": "phone_reminder",
+        "rationale": "Eye closure and gaze on the phone indicate potential drowsiness at night."
+      },
+      "error": null,
+      "latency_s": 10.373,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0008",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 69.4,
+        "trip_minutes": 50,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 12.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 2181
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with sustained gaze-off-road during a night drive.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with sustained gaze-off-road during a night drive."
+      },
+      "error": null,
+      "latency_s": 9.536,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0009",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 68.3,
+        "trip_minutes": 8,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 6.3,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 2371
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off while driving.\",\"action\":\"phone_reminder\",\"rationale\":\"Eye closure and gaze on the phone indicate potential drowsiness.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off while driving.",
+        "action": "phone_reminder",
+        "rationale": "Eye closure and gaze on the phone indicate potential drowsiness."
+      },
+      "error": null,
+      "latency_s": 8.602,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0010",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 76.4,
+        "trip_minutes": 40,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 3.0,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "phone",
+          "off_road_ms": 1487
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Please keep your phone off and hands-free.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with gaze away from road during morning commute.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Please keep your phone off and hands-free.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with gaze away from road during morning commute."
+      },
+      "error": null,
+      "latency_s": 7.45,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0011",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 32.7,
+        "trip_minutes": 8,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 7.1,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 944
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Early fatigue indicators with occasional gaze away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Early fatigue indicators with occasional gaze away from the road."
+      },
+      "error": null,
+      "latency_s": 7.838,
+      "violations": [
+        "phone_while_moving_undercalled",
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-phone_moving-101-0012",
+      "taxonomy": "phone_moving",
+      "signals": {
+        "speed_kmh": 73.4,
+        "trip_minutes": 52,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 8.1,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 1713
+        },
+        "phone": {
+          "in_hand": true,
+          "screen_on": true
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Keep your phone off and eyes on the road.\",\"action\":\"phone_reminder\",\"rationale\":\"Phone in hand with gaze away from the road at moderate speed.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Keep your phone off and eyes on the road.",
+        "action": "phone_reminder",
+        "rationale": "Phone in hand with gaze away from the road at moderate speed."
+      },
+      "error": null,
+      "latency_s": 8.796,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0000",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 100.5,
+        "trip_minutes": 42,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 8.1,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "center_console",
+          "off_road_ms": 4606
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent gaze off-road at highway speed with no phone use.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent gaze off-road at highway speed with no phone use."
+      },
+      "error": null,
+      "latency_s": 8.083,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0001",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 99.2,
+        "trip_minutes": 44,
+        "time_of_day": "morning",
+        "drowsiness": {
+          "eye_closure_pct": 7.2,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "center_console",
+          "off_road_ms": 4519
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Sustained gaze-off-road at highway speed with no phone use.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Sustained gaze-off-road at highway speed with no phone use."
+      },
+      "error": null,
+      "latency_s": 7.366,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0002",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 60.6,
+        "trip_minutes": 13,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 5.9,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "lap",
+          "off_road_ms": 2364
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Avoid looking away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent gaze-off-road at night with mild drowsiness.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Avoid looking away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent gaze-off-road at night with mild drowsiness."
+      },
+      "error": null,
+      "latency_s": 8.31,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0003",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 98.2,
+        "trip_minutes": 58,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 4.7,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 3515
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Long gaze-off-road during night driving with no other risk factors.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Long gaze-off-road during night driving with no other risk factors."
+      },
+      "error": null,
+      "latency_s": 9.589,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0004",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 80.4,
+        "trip_minutes": 45,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 3.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 2827
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Stay focused on the road. You've been looking away for a while.\",\"action\":\"suggest_break\",\"rationale\":\"Early fatigue with occasional glances off-road, no phone use.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Stay focused on the road. You've been looking away for a while.",
+        "action": "suggest_break",
+        "rationale": "Early fatigue with occasional glances off-road, no phone use."
+      },
+      "error": null,
+      "latency_s": 10.45,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0005",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 67.7,
+        "trip_minutes": 32,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 13.9,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "lap",
+          "off_road_ms": 3935
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Avoid long gazes.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent drowsiness with occasional off-road gaze at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Avoid long gazes.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent drowsiness with occasional off-road gaze at night."
+      },
+      "error": null,
+      "latency_s": 8.467,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0006",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 60.2,
+        "trip_minutes": 21,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 11.5,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "center_console",
+          "off_road_ms": 2783
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Sustained gaze-off-road at highway speed with early drowsiness indicators.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Sustained gaze-off-road at highway speed with early drowsiness indicators."
+      },
+      "error": null,
+      "latency_s": 9.403,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0007",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 65.0,
+        "trip_minutes": 43,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 6.6,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "lap",
+          "off_road_ms": 4570
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Your gaze is away from the road for too long. Keep your eyes on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Long gaze-off-road combined with moderate drowsiness and no phone use.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Your gaze is away from the road for too long. Keep your eyes on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Long gaze-off-road combined with moderate drowsiness and no phone use."
+      },
+      "error": null,
+      "latency_s": 21.33,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0008",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 102.0,
+        "trip_minutes": 57,
+        "time_of_day": "afternoon",
+        "drowsiness": {
+          "eye_closure_pct": 11.3,
+          "yawn_count_5min": 0,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "passenger",
+          "off_road_ms": 3369
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Avoid looking away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Long gaze-off-road during a high-speed trip with no other distractions.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Avoid looking away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Long gaze-off-road during a high-speed trip with no other distractions."
+      },
+      "error": null,
+      "latency_s": 8.452,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-gaze_offroad_long-101-0009",
+      "taxonomy": "gaze_offroad_long",
+      "signals": {
+        "speed_kmh": 97.4,
+        "trip_minutes": 37,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 10.2,
+          "yawn_count_5min": 1,
+          "head_nod_events": 0
+        },
+        "gaze": {
+          "zone": "lap",
+          "off_road_ms": 4038
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent drowsiness and gaze off-road at highway speed.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent drowsiness and gaze off-road at highway speed."
+      },
+      "error": null,
+      "latency_s": 8.327,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0000",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 81.8,
+        "trip_minutes": 235,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 36.2,
+          "yawn_count_5min": 4,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 71
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 8.703,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0001",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 53.6,
+        "trip_minutes": 136,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 49.5,
+          "yawn_count_5min": 4,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 4
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road ahead.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional gazes away from the road.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road ahead.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional gazes away from the road."
+      },
+      "error": null,
+      "latency_s": 8.402,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0002",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 57.4,
+        "trip_minutes": 226,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 44.3,
+          "yawn_count_5min": 6,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 221
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of prolonged gaze and moderate drowsiness warrant caution.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of prolonged gaze and moderate drowsiness warrant caution."
+      },
+      "error": null,
+      "latency_s": 7.61,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0003",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 79.4,
+        "trip_minutes": 182,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 41.6,
+          "yawn_count_5min": 6,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 203
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Your gaze is off-road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness, head nod events, and gaze away from road indicate sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Your gaze is off-road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness, head nod events, and gaze away from road indicate sustained risk."
+      },
+      "error": null,
+      "latency_s": 11.496,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0004",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 84.1,
+        "trip_minutes": 172,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 37.5,
+          "yawn_count_5min": 4,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 218
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 16.331,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0005",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 48.4,
+        "trip_minutes": 105,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 48.8,
+          "yawn_count_5min": 3,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 101
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 7.33,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0006",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 42.7,
+        "trip_minutes": 112,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 44.5,
+          "yawn_count_5min": 5,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 162
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Your gaze is away from the road for too long.\",\"action\":\"reduce_distraction\",\"rationale\":\"Sustained drowsiness with repeated off-road gazes at night.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Your gaze is away from the road for too long.",
+        "action": "reduce_distraction",
+        "rationale": "Sustained drowsiness with repeated off-road gazes at night."
+      },
+      "error": null,
+      "latency_s": 9.616,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0007",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 67.0,
+        "trip_minutes": 176,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 43.2,
+          "yawn_count_5min": 3,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 191
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of drowsiness and gaze-off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of drowsiness and gaze-off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 7.569,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0008",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 77.2,
+        "trip_minutes": 67,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 48.9,
+          "yawn_count_5min": 4,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 221
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Be more alert. Gaze away from the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of high drowsiness and gaze off-road indicates sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Be more alert. Gaze away from the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of high drowsiness and gaze off-road indicates sustained risk."
+      },
+      "error": null,
+      "latency_s": 7.855,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-drowsy_moderate-101-0009",
+      "taxonomy": "drowsy_moderate",
+      "signals": {
+        "speed_kmh": 53.0,
+        "trip_minutes": 179,
+        "time_of_day": "evening",
+        "drowsiness": {
+          "eye_closure_pct": 49.9,
+          "yawn_count_5min": 3,
+          "head_nod_events": 1
+        },
+        "gaze": {
+          "zone": "windshield",
+          "off_road_ms": 42
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"info\",\"message\":\"Be mindful of the road. You've been yawning a lot.\",\"action\":\"suggest_break\",\"rationale\":\"Early signs of fatigue with occasional head nods and yawns.\"}",
+      "response": {
+        "severity": "info",
+        "message": "Be mindful of the road. You've been yawning a lot.",
+        "action": "suggest_break",
+        "rationale": "Early signs of fatigue with occasional head nods and yawns."
+      },
+      "error": null,
+      "latency_s": 8.302,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0000",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 117.3,
+        "trip_minutes": 269,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 73.6,
+          "yawn_count_5min": 5,
+          "head_nod_events": 4
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 3833
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"You've been drowsy for a while. Keep your eyes on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent eye closure and head nod events indicate sustained risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "You've been drowsy for a while. Keep your eyes on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent eye closure and head nod events indicate sustained risk."
+      },
+      "error": null,
+      "latency_s": 8.494,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0001",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 118.0,
+        "trip_minutes": 279,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 93.7,
+          "yawn_count_5min": 8,
+          "head_nod_events": 5
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 3910
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"critical\",\"message\":\"Pull over now. You need rest.\",\"action\":\"alert_drowsiness\",\"rationale\":\"Severe drowsiness with multiple head nods and long gaze-off-road at highway speed.\"}",
+      "response": {
+        "severity": "critical",
+        "message": "Pull over now. You need rest.",
+        "action": "alert_drowsiness",
+        "rationale": "Severe drowsiness with multiple head nods and long gaze-off-road at highway speed."
+      },
+      "error": null,
+      "latency_s": 10.322,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0002",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 87.8,
+        "trip_minutes": 264,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 80.0,
+          "yawn_count_5min": 3,
+          "head_nod_events": 4
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 3886
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 2,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Stay alert. Your eyes are closing.\",\"action\":\"reduce_distraction\",\"rationale\":\"Persistent drowsiness with head nod events and long gaze-off-road.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Stay alert. Your eyes are closing.",
+        "action": "reduce_distraction",
+        "rationale": "Persistent drowsiness with head nod events and long gaze-off-road."
+      },
+      "error": null,
+      "latency_s": 9.087,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0003",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 110.0,
+        "trip_minutes": 227,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 89.7,
+          "yawn_count_5min": 4,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 3688
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"You've been drowsy for a while. Take a break soon.\",\"action\":\"suggest_break\",\"rationale\":\"Persistent eye closure and head nod events indicate sustained risk of fatigue.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "You've been drowsy for a while. Take a break soon.",
+        "action": "suggest_break",
+        "rationale": "Persistent eye closure and head nod events indicate sustained risk of fatigue."
+      },
+      "error": null,
+      "latency_s": 9.553,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0004",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 73.0,
+        "trip_minutes": 89,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 73.2,
+          "yawn_count_5min": 6,
+          "head_nod_events": 4
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 1926
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"You've been drowsy for a while. Take a break.\",\"action\":\"suggest_break\",\"rationale\":\"Persistent eye closure and head nod events indicate sustained risk of fatigue.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "You've been drowsy for a while. Take a break.",
+        "action": "suggest_break",
+        "rationale": "Persistent eye closure and head nod events indicate sustained risk of fatigue."
+      },
+      "error": null,
+      "latency_s": 8.317,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0005",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 61.4,
+        "trip_minutes": 197,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 82.4,
+          "yawn_count_5min": 2,
+          "head_nod_events": 5
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 3814
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 1,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"You've been drowsy for a while. Take a break.\",\"action\":\"suggest_break\",\"rationale\":\"Persistent eye closure and head nod events indicate potential fatigue.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "You've been drowsy for a while. Take a break.",
+        "action": "suggest_break",
+        "rationale": "Persistent eye closure and head nod events indicate potential fatigue."
+      },
+      "error": null,
+      "latency_s": 8.732,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0006",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 99.3,
+        "trip_minutes": 256,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 77.7,
+          "yawn_count_5min": 4,
+          "head_nod_events": 4
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 1641
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Your gaze is off-road. Be more alert.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of high drowsiness and prolonged gaze-off-road indicate a risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Your gaze is off-road. Be more alert.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of high drowsiness and prolonged gaze-off-road indicate a risk."
+      },
+      "error": null,
+      "latency_s": 9.45,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0007",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 104.9,
+        "trip_minutes": 88,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 94.8,
+          "yawn_count_5min": 5,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 2614
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"critical\",\"message\":\"Pull over now. You need rest.\",\"action\":\"alert_drowsiness\",\"rationale\":\"Severe drowsiness with multiple head nods and long gaze-off-road at highway speed.\"}",
+      "response": {
+        "severity": "critical",
+        "message": "Pull over now. You need rest.",
+        "action": "alert_drowsiness",
+        "rationale": "Severe drowsiness with multiple head nods and long gaze-off-road at highway speed."
+      },
+      "error": null,
+      "latency_s": 8.547,
+      "violations": []
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0008",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 104.2,
+        "trip_minutes": 272,
+        "time_of_day": "night",
+        "drowsiness": {
+          "eye_closure_pct": 68.8,
+          "yawn_count_5min": 6,
+          "head_nod_events": 2
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 1598
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"Your gaze is off-road. Please keep your eyes on the road.\",\"action\":\"reduce_distraction\",\"rationale\":\"Combination of high drowsiness and prolonged gaze-off-road indicate a risk.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "Your gaze is off-road. Please keep your eyes on the road.",
+        "action": "reduce_distraction",
+        "rationale": "Combination of high drowsiness and prolonged gaze-off-road indicate a risk."
+      },
+      "error": null,
+      "latency_s": 9.345,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    },
+    {
+      "scenario_id": "eval-microsleep_critical-101-0009",
+      "taxonomy": "microsleep_critical",
+      "signals": {
+        "speed_kmh": 118.2,
+        "trip_minutes": 153,
+        "time_of_day": "late_night",
+        "drowsiness": {
+          "eye_closure_pct": 67.3,
+          "yawn_count_5min": 8,
+          "head_nod_events": 4
+        },
+        "gaze": {
+          "zone": "eyes_closed",
+          "off_road_ms": 2830
+        },
+        "phone": {
+          "in_hand": false,
+          "screen_on": false
+        },
+        "cabin": {
+          "n_passengers": 0,
+          "child_present": false,
+          "conversation": false
+        },
+        "history": {
+          "alerts_last_30min": 0
+        }
+      },
+      "raw": "{\"severity\":\"warning\",\"message\":\"You've been drowsy for a while. Take a break.\",\"action\":\"suggest_break\",\"rationale\":\"Persistent eye closure and head nod events indicate sustained risk of fatigue.\"}",
+      "response": {
+        "severity": "warning",
+        "message": "You've been drowsy for a while. Take a break.",
+        "action": "suggest_break",
+        "rationale": "Persistent eye closure and head nod events indicate sustained risk of fatigue."
+      },
+      "error": null,
+      "latency_s": 7.731,
+      "violations": [
+        "severity_out_of_band"
+      ]
+    }
+  ]
+}

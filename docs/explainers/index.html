@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CabinCopilot-SLM — Build Explainers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>CabinCopilot-SLM — Build Explainers</h1>
+  <p class="meta">A live decision log: every phase of this project documented as it was
+  built — what was decided, why, and what was rejected. Written July 2026.</p>
+
+  <p>This project fine-tunes a 3B-parameter language model to convert driver-monitoring
+  signals into safe, spoken coaching — and ships it quantized so it runs on-device.
+  Each page below covers one phase:</p>
+
+  <table>
+    <tr><th>#</th><th>Phase</th><th>Covers</th></tr>
+    <tr><td>01</td><td><a href="01-project-selection.html">Project selection &amp; strategy</a></td>
+        <td>Why fine-tuning, why this task, model choice, compute plan under real constraints</td></tr>
+    <tr><td>02</td><td><a href="02-data-pipeline.html">Data pipeline</a></td>
+        <td>Scenario simulator, taxonomy, teacher prompts, quality gate, smoke-test findings</td></tr>
+    <tr><td>03</td><td><a href="03-training.html">QLoRA training</a></td>
+        <td>Hyperparameters, free-GPU orchestration on Kaggle, loss curves</td></tr>
+    <tr><td>04</td><td><a href="04-evaluation.html">Evaluation</a></td>
+        <td>Metrics design, LLM-judge methodology, results vs baselines</td></tr>
+    <tr><td>05</td><td><a href="05-export-serving.html">Export &amp; serving</a></td>
+        <td>GGUF quantization, Ollama on-device demo, FastAPI service</td></tr>
+    <tr><td>06</td><td><a href="06-build-sessions.html">The build sessions</a></td>
+        <td>What was actually thought, tried, and done — session by session, failures included</td></tr>
+    <tr><td>07</td><td><a href="07-state-and-runbook.html">State &amp; runbook</a></td>
+        <td>Live status board, the three human actions needed, what fires automatically next</td></tr>
+  </table>
+
+  <h2>The one-paragraph thesis</h2>
+  <p>A large prompted LLM can do this task, but not in a car: cost, latency, and cabin
+  privacy all argue for on-device. The engineered behaviour lives in a ~1,200-token
+  teacher prompt; fine-tuning distills that behaviour into a 3B model that needs only a
+  ~60-token system prompt. <strong>Fine-tuning as prompt compression</strong> — measured
+  by schema-pass rate, deterministic safety compliance, and pairwise LLM-judge win-rate
+  against both the base model and a much larger prompted model.</p>
+
+  <footer>CabinCopilot-SLM · Gauri Tulsulkar · built with Claude Code</footer>
+</main>
+</body>
+</html>

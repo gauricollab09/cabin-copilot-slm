@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · Data Pipeline — CabinCopilot-SLM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">← All explainers</a></p>
+  <h1>02 · Data Pipeline</h1>
+  <p class="meta">Simulator → teacher → quality gate → dataset — 3 July 2026</p>
+
+  <h2>Shape of the pipeline</h2>
+  <pre><code>simulate ──▶ generate ──▶ judge ──▶ filter ──▶ train.jsonl
+ (seeded)    (teacher LLM)  (rubric)   (rules+dedup+balance)</code></pre>
+  <p>Every stage reads and writes JSONL, so any stage can be inspected, rerun, or
+  resumed independently. Teacher calls checkpoint after every record — an interrupted
+  overnight run loses nothing.</p>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Scenarios are simulated programmatically, not asked from an LLM</h3>
+    <p>A 15-cell safety taxonomy (drowsiness episodes, gaze-off-road × speed, phone use,
+    child distraction, alert fatigue, false-positive traps…) with seeded samplers gives
+    <em>guaranteed, stratified coverage</em> — including the rare critical cases an LLM
+    asked to "imagine driving scenarios" reliably under-samples. It's also deterministic:
+    the same seed yields byte-identical scenarios on any machine, so the Kaggle GPU
+    kernel regenerates them instead of shipping files around.</p>
+    <p class="rejected"><strong>Rejected: LLM-generated scenarios.</strong> Coverage
+    becomes a vibe, not a property; duplicates and mode collapse near the taxonomy tails;
+    non-reproducible.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Each taxonomy cell carries a ground-truth severity <em>band</em></h3>
+    <p>Unambiguous cells pin the response (microsleep at highway speed ⇒ exactly
+    <code>critical</code>); ambiguous cells allow a range (a lone high eye-closure reading
+    with zero corroboration ⇒ <code>none…caution</code>) so the teacher may exercise
+    judgment. The band is never shown to any model — it powers the hard reject in data
+    generation and the severity-accuracy metric in eval.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Behavioural constraints live in code, not in the schema</h3>
+    <p><code>CoachResponse</code> validates structure (enums, types, length caps). Eight
+    deterministic safety rules — "critical ⇒ ≤ 8 words and an alarm action",
+    "phone-in-hand while moving may never be under-called", "≥ 3 recent alerts ⇒
+    suppress low-severity nudges", "never direct the driver to a screen while moving" —
+    are plain Python over (scenario, response) pairs. Two payoffs: they hard-gate
+    training data <em>and</em> they are the safety-compliance metric at eval, measured
+    independently of schema validity.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Teacher prompt is long; student prompt is 60 tokens</h3>
+    <p>The teacher system prompt (~1,200 tokens) encodes signal semantics, the severity
+    policy, voice rules, and three few-shot examples. Training pairs are written in chat
+    format with the <em>short</em> student prompt, so the model learns to behave as if
+    the long prompt were present. This gap is the measurable thesis of the project.</p>
+  </div>
+
+  <h2>What the first real run showed</h2>
+  <p>A 6-scenario smoke test through a local llama3.2-3B teacher validated the design
+  in miniature:</p>
+  <table>
+    <tr><th>Observation</th><th>Consequence</th></tr>
+    <tr><td>2 of 6 outputs rejected — one severity out-of-band, one under-called a
+        phone-while-moving risk <span class="bad">✗</span></td>
+        <td>A 3B teacher is too weak; confirms the plan to use a 14B+ teacher on a free
+        Kaggle GPU, with the deterministic gate as the backstop for any teacher.</td></tr>
+    <tr><td>~11.5 s per scenario on the Intel CPU</td>
+        <td>A 2,400-scenario local run is ~7 h — acceptable as an overnight fallback,
+        far too slow as the primary path.</td></tr>
+    <tr><td>Parse retries recovered several malformed completions <span class="good">✓</span></td>
+        <td>Retry-with-reprompt inside <code>generate</code> pays for itself with small
+        teachers; large teachers rarely need it.</td></tr>
+  </table>
+
+  <h2>Mid-build correction: label-conditioned generation</h2>
+  <div class="decision">
+    <div class="label">Finding → Decision</div>
+    <h3>Small teachers can't calibrate severity from signals alone — so condition them on the label</h3>
+    <p>The first full fallback run (llama3.2-3B teacher, local CPU) was stopped after 448
+    scenarios: the quality gate accepted only <strong>10%</strong>, with 345/448 rejected
+    for severity-out-of-band — and every accepted pair was <code>none</code>/<code>info</code>
+    severity. A 3B teacher simply cannot map raw signals to the right urgency level.</p>
+    <p>Fix: <strong>label-conditioned generation</strong>, a standard synthetic-data
+    technique. The simulator already knows each scenario's ground-truth severity band, so
+    <code>--hint-band</code> appends it to the <em>teacher's</em> input as a calibration
+    note. The teacher now only chooses phrasing, action, and judgment <em>within</em> the
+    band. The student never sees hints, and the deterministic gate still re-checks every
+    output independently.</p>
+    <table>
+      <tr><th></th><th>Unconditioned</th><th>Hint-band</th></tr>
+      <tr><td>Gate acceptance (pre-balance)</td><td class="bad">~10%</td><td class="good">~85%</td></tr>
+      <tr><td>Severity out-of-band</td><td class="bad">77% of samples</td><td class="good">~5%</td></tr>
+      <tr><td>Severity classes reached</td><td class="bad">none, info only</td><td class="good">all five</td></tr>
+    </table>
+    <p>An A/B of two local 3B teachers with hints (llama3.2 vs qwen2.5:3b) also exposed
+    their remaining weakness: <em>parroting</em> — few-shot examples copied verbatim and
+    stock phrases repeated across scenarios. That is a teacher-capacity problem the
+    dedup stage only partially masks, and it is the concrete, measured argument for the
+    14B teacher on a free Kaggle GPU being the primary data path.</p>
+  </div>
+
+  <div class="decision">
+    <div class="label">Decision</div>
+    <h3>Dedup and class balance run before anything reaches training</h3>
+    <p>Near-duplicate coaching messages (normalised text, per severity class) are
+    dropped — small models memorise stock phrases fast, and message variety is a rubric
+    criterion. Severity classes are capped at 2.5× the smallest class so
+    <code>none</code>-severity examples (the most common cells) can't drown out
+    <code>critical</code> ones.</p>
+  </div>
+
+  <footer>Next: <a href="03-training.html">03 · QLoRA training</a></footer>
+</main>
+</body>
+</html>

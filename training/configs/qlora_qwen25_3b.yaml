@@ -1,0 +1,31 @@
+# QLoRA fine-tune of Qwen2.5-3B-Instruct on the CabinCopilot dataset.
+# Rank/alpha and LR follow the common QLoRA recipe (Dettmers et al.) adapted for a
+# small, highly-structured dataset: modest rank, 2 epochs, cosine schedule.
+model_id: Qwen/Qwen2.5-3B-Instruct
+seed: 7
+
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: float16   # T4 has no bfloat16
+  bnb_4bit_use_double_quant: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  epochs: 2
+  per_device_batch_size: 2
+  gradient_accumulation_steps: 8    # effective batch 16
+  learning_rate: 2.0e-4
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  max_seq_length: 1024
+  logging_steps: 5
+  eval_holdout_fraction: 0.05
+  gradient_checkpointing: true
+  optim: paged_adamw_8bit
+  output_dir: outputs/qlora-qwen25-3b

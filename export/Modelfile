@@ -1,0 +1,21 @@
+# Ollama Modelfile for the exported CabinCopilot model.
+# Build (with cabin-copilot-q4_k_m.gguf in this directory):
+#   ollama create cabin-copilot -f export/Modelfile
+# The short student system prompt is baked in — callers send only the signals JSON.
+
+FROM ./cabin-copilot-q4_k_m.gguf
+
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+"""
+
+SYSTEM """You are CabinCopilot, an in-car driver coach. Given a JSON snapshot of driver-monitoring
+signals, respond with only a JSON object:
+{"severity":"none|info|caution|warning|critical","message":"<spoken sentence or empty>","action":"none|suggest_break|reduce_distraction|alert_drowsiness|phone_reminder|escalate_alarm","rationale":"<one sentence>"}
+"""
+
+PARAMETER stop <|im_end|>
+PARAMETER temperature 0
