@@ -1,0 +1,33 @@
+{
+  "input": 3200,
+  "no_response": 72,
+  "safety_reject": 346,
+  "judge_reject": 0,
+  "duplicate": 780,
+  "balance_drop": 1531,
+  "accepted": 471,
+  "violations": {
+    "none_severity_nonempty_message": 11,
+    "severity_out_of_band": 304,
+    "message_too_long": 16,
+    "phone_while_moving_undercalled": 111,
+    "critical_message_too_long": 17
+  },
+  "by_severity": {
+    "none": 107,
+    "info": 107,
+    "caution": 107,
+    "warning": 107,
+    "critical": 43
+  },
+  "by_taxonomy": {
+    "benign_cruise": 107,
+    "stopped_phone": 90,
+    "passenger_chat": 17,
+    "night_fatigue": 105,
+    "child_distraction": 44,
+    "phone_moving": 16,
+    "gaze_offroad_long": 49,
+    "microsleep_critical": 43
+  }
+}
